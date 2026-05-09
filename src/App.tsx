@@ -9,6 +9,9 @@ import {
 import BudayaList from "./pages/budaya/BudayaList";
 import BudayaDetail from "./pages/budaya/BudayaDetail";
 import ArtikelBudaya from "./pages/budaya/ArtikelBudaya";
+import OpenTrip from "./pages/open-trip/OpenTrip";
+import OpenTripDetail from "./pages/open-trip/OpenTripDetail";
+import OpenTripBooking from "./pages/open-trip/OpenTripBooking";
 
 function Navbar() {
   const location = useLocation();
@@ -36,6 +39,15 @@ function Navbar() {
         >
           📰 Artikel
         </Link>
+                <Link
+          to="/open-trip"
+          style={{
+            ...navStyles.link,
+            ...(isActive("/open-trip") ? navStyles.linkActive : {}),
+          }}
+        >
+          📰 Open Trip
+        </Link>
       </div>
     </nav>
   );
@@ -50,6 +62,9 @@ function App() {
         <Route path="/budaya" element={<BudayaList />} />
         <Route path="/budaya/:id" element={<BudayaDetail />} />
         <Route path="/artikel" element={<ArtikelBudaya />} />
+        <Route path="/open-trip" element={<OpenTrip />} />
+        <Route path="/open-trip/:id" element={<OpenTripDetail />} />
+        <Route path="/open-trip/booking/:id" element={<OpenTripBooking />} />
       </Routes>
     </BrowserRouter>
   );
